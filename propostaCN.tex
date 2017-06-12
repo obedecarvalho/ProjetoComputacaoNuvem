@@ -1,0 +1,41 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\title{FastFoot - Desafios de futebol online}
+\author{Obede Carvalho (201410277), Gabriel Rodrigues (201321120)}
+\date{}
+\begin{document}
+
+	\maketitle
+	
+	\section*{Objetivo do trabalho e motivação}
+		O desenvolvimento do trabalho tem como objetivo um conhecimento prático por parte dos alunos das tecnologias de computação em nuvem, em especial com a arquitetura software como um serviço. Também tem como objetivo novos conhecimentos sobre tecnologias de programação, como linguagens, frameworks e padrões de desenvolvimento.
+
+	\section*{Descrição Geral do sistema}
+		O sistema será um gerenciador de times de futebol onde o usuário irá gerenciar toda a estrutura de um time de futebol, como patrocínios, negociação de jogadores, estrutura de estádio, entre outros. O usuário poderá jogar partidas de campeonatos e amistosas contra outros usuários.
+
+	\section*{Diagrama componentes do sistema}
+		O sistema estará hospedado em uma plataforma como serviços (Paas) e acessará um banco de dados também hospedado em um plataforma como serviço. O usuário acessará o sistema através de um navegador web.
+
+	\section*{Requisitos funcionais}
+		\begin{itemize}
+			\item O usuário deverá criar uma conta e estar logado para acessar as funcionalidades do sistema.
+			\item O usuário gerenciará todos os aspectos do time criado por ele, como nome do time, negociação de jogadores, negociação de patrocínios, estrutura do estádio, escalação do time para uma partida, escolha de formação tática.
+			\item Todo time criado entrará automaticamente em um campeonato de acesso. Dentro dos campeonatos haverá promoção e rebaixamento, para outros campeonatos, para os melhores e piores times respectivamente.
+			\item Os jogadores de um time terão um nível de qualidade, o que determinará o resultado dos jogos.
+			\item Um time começará com jogadores de baixo nível de qualidade.
+			\item Um usuário terá acesso a informações de todos os jogadores disponíveis para negociação.	
+		\end{itemize}
+
+	\section*{Requisitos não funcionais}
+		\begin{itemize}
+			\item O sistema deverá suportar uma grande quantidade de usuários (escalabilidade).
+			\item O sistema deverá estar disponível em pelo menos 95\% do tempo.
+			\item Os dados dos usuários do sistema devem estar protegidos dentro das políticas de privacidade do sistema.
+		\end{itemize}
+
+	\section*{Desafios técnicos}
+		Os desafios do projeto serão com o uso de frameworks e api's necessárias para desenvolvimento da aplicação, assim como desenvolvimento de páginas web por onde o usuário acessará o sistema.
+
+\end{document}
