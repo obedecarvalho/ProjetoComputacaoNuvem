@@ -5,31 +5,9 @@
 	<title>Adminstração do clube</title>
 	<meta charset="utf-8" />
     <script src="angular.min.js"></script>
-    <script src="jquery.min.js"></script>
     <script>
         var app = angular.module("admin_clube", []);
         app.controller("admin_clube_ctrl", function($scope,$http){
-            $scope.login_valido = 0;
-            $scope.verificar_sessao();
-            
-            $scope.jogadores = [];
-            $scope.taticas = ['3-4-3','3-5-2','4-4-2','4-3-3'];
-            $scope.amistosos = [];
-            
-            if ($scope.login_valido == 0){
-                $scope.listar_jogadores();
-                $scope.listar_amistosos();
-            }
-            
-            
-            $scope.listar_jogadores = function (){
-                
-            }
-            
-            $scope.listar_amistosos = function (){
-                
-            }
-            
             $scope.verificar_sessao = function (){
                 url = "http:./session.php";
                 $http.get(url).then(function (response) {
@@ -38,6 +16,26 @@
                         window.location.href = "http:./index.html";
                     }
                 });
+            }
+            
+            $scope.listar_jogadores = function (){
+                
+            }
+            
+            $scope.listar_amistosos = function (){
+                
+            }            
+                        
+            $scope.login_valido = 0;
+            $scope.verificar_sessao();
+                        
+            $scope.jogadores = [];
+            $scope.taticas = ['3-4-3','3-5-2','4-4-2','4-3-3'];
+            $scope.amistosos = [];
+            
+            if ($scope.login_valido == 1){
+                $scope.listar_jogadores();
+                $scope.listar_amistosos();
             }
         })
     </script>
@@ -49,11 +47,16 @@
             <li ng-repeat="j in jogadores">
             </li>
         </ul>
-        
+<!--
+        select
+-->
         <ul>
             <li ng-repeat="a in amistosos">
             </li>
         </ul>
+<!--
+        comprar jogadores
+-->
     </div>
     <a href="./deslogar.php">Deslogar</a>	
 </body>
