@@ -3,6 +3,7 @@
     $con = new mysqli($host, $login, $senha, $bd);
     $sql = "SELECT id_usr FROM usr WHERE login='".$_REQUEST["login"]."' AND senha='".$_REQUEST["senha"]."';";
     $res = $con->query($sql);
+    $outp = "";
     $out = 0;
     if ($res->num_rows == 1){
         $out = 1;
@@ -15,6 +16,8 @@
         $_SESSION["id_clube"] = $id_clube["id_clube"];
         //armazena id_usr e id_clube na sessao
     }
+    $outp .= '{"login_valido":"'.$out.'"}';
+    $outp ='{"records":['.$outp.']}';
     $con->close();
-    echo $out;
+    echo $outp;
 ?>

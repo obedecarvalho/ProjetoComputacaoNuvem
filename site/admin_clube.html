@@ -10,7 +10,7 @@
         app.controller("admin_clube_ctrl", function($scope,$http){
             $scope.login_valido = 0;
             $scope.lista_jogadores = [];
-            $scope.amistosos = [];            
+            $scope.amistosos = [];
             
             $scope.listar_jogadores = function (){
                 url = "http:./listar_jogadores.php";
@@ -32,18 +32,31 @@
                     alert($scope.lista_jogadores[i]);
                 }
             }
+            
+            $scope.get_info_clube = function(){
+                url = "http:./info_clube.php";
+                $http.get(url).then(function (response) {
+                    var resp = response.data.records;
+                    $scope.nome_clube = resp[0]["nome_clube"];
+                    $scope.patrimonio_clube = resp[0]["patrimonio"];
+                });
+            }
 
             
             $scope.taticas = ['3-4-3','3-5-2','4-4-2','4-3-3','5-4-1'];
             $scope.buscar_tatica = function(){
                 url = "http:./tatica.php";
                 $http.get(url).then(function (response) {
-                    var resp = parseInt(response.data) - 1;
+                    var resp = response.data.records;
                     if(resp != -1){
-                        $scope.formacao_tatica = $scope.taticas[resp];
+                        $scope.formacao_tatica = $scope.taticas[parseInt(resp[0]['tatica']) - 1];
                     }
                 });
                 
+            }
+            
+            $scope.alterar_tatica = function (){
+                alert($scope.formacao_tatica);
             }
             
             $scope.disputar_amistoso = function(id_amistoso){
@@ -54,16 +67,22 @@
                 alert(jog['nome_jogador']);
             }
             
+            $scope.escalar_jogador = function(jog){
+                alert(jog['nome_jogador']);
+            }
+            
             $scope.verificar_sessao = function (){
                 url = "http:./session.php";
                 $http.get(url).then(function (response) {
-                    $scope.login_valido = response.data;
+                    var resp = response.data.records;
+                    $scope.login_valido = resp[0]['logado'];
                     if($scope.login_valido == 0){
                         window.location.href = "http:./index.html";
                     } else {
                         $scope.listar_jogadores();
                         $scope.buscar_tatica();
                         $scope.listar_amistosos();
+                        $scope.get_info_clube();
                     }
                 });
             }                        
@@ -76,32 +95,44 @@
 
 <body>
     <div ng-app="admin_clube" ng-controller="admin_clube_ctrl">
+        <div id="info_clube">
+            <h2>Nome Clube: {{ nome_clube }}</h2>
+            <h2>Patrimônio: {{ patrimonio_clube }}</h2>
+        </div>
+        
+        <div id="tatica">
+            <h3>Formação Tática</h3>
+            <select ng-change="alterar_tatica()" ng-model="formacao_tatica">
+                <option ng-repeat="x in taticas">{{x}}</option>
+            </select>
+        </div>
         <div id="lista_jogadores">
             <h3>Jogadores</h3><br>
             <table>
                 <thead>
-                    <tr>Nome</tr>
-                    <tr>Força</tr>
-                    <tr>Valor</tr>
-                    <tr>Posição</tr>
-                    <tr>Vender</tr>
+                    <td>Nome</td>
+                    <td>Força</td>
+                    
+                    <td>Posição</td>
+                    <td>Escalar</td>
+                    <td>Valor</td>
+                    <td>Vender</td>
                 </thead>
-                <tr ng-repeat="j in lista_jogadores | orderBy : 'forca' | orderBy : 'posicao'">
+                <tr ng-repeat="j in lista_jogadores | orderBy : 'posicao'">
                     <td>{{ j.nome_jogador }}</td>
                     <td>{{ j.forca }}</td>
+                    <td ng-if="j.posicao == 0">Goleiro</td>
+                    <td ng-if="j.posicao == 1">Defesa</td>
+                    <td ng-if="j.posicao == 2">Meio-Campo</td>
+                    <td ng-if="j.posicao == 3">Ataque</td>
+                    <td><input type="button" ng-click="escalar_jogador(j)" value="Escalar"></td>
                     <td>{{ j.forca * 10}}</td>
-                    <td>{{ j.posicao }}</td>
-                    <td><input type="button" ng-click="vender_jogador(j)" value="Vender"</td>
+                    <td><input type="button" ng-click="vender_jogador(j)" value="Vender"></td>
                 </tr>
             </table>
             <br><a href="./comprar_jogadores.php">Comprar Jogadores</a>	
         </div>
-        <div id="tatica">
-            <h3>Formação Tática</h3>
-            <select ng-model="formacao_tatica">
-                <option ng-repeat="x in taticas">{{x}}</option>
-            </select>
-        </div>
+        
         
         <div id="amistosos">
             <h3>Amistosos</h3>
@@ -114,7 +145,7 @@
         </div>
 
     </div>
-    <br><a href="./deslogar.php">Deslogar</a>	
+    <br><a href="./deslogar.php">Sair</a>	
 </body>
 
 </html>
