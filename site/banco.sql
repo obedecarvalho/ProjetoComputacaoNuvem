@@ -22,7 +22,7 @@ CREATE TABLE clube(
 
 CREATE TABLE jogador(
 	id_jogador integer unsigned NOT NULL auto_increment,
-    id_clube integer unsigned,
+    id_clube integer unsigned, #jogadores sem clube = NULL
     nome_jogador varchar(64) NOT NULL,
     forca integer NOT NULL, # 1 a 10
     posicao integer NOT NULL, # 1 a 4 (G,D,M,A)

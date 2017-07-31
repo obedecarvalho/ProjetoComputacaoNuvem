@@ -1,0 +1,32 @@
+Tarefas ainda faltam:
+    1 - Colocar estilo nas páginas:
+        -index.html
+        -comprar_jogador.html
+        -admin_clube.html
+    2 - Cadastrar novo usuario
+        cadastrar novo usuario no banco e gerar seus jogadores (onde: *.php e index.js)
+    3 - Comprar Jogador
+        alterar id_clube do jogador no banco, alterar saldo clube no banco (onde: *.php e comprar_jogador.js)
+    4 - Escalar time
+        permitir jogador alterar tatica, selecionar jogadores de acordo com a tatica e salvar a tatica escolhida em ?? (onde: *.php e admin_clube.js)
+    5 - disputar amistoso (clube i x clube j):
+        5.1 - Fazer back-end da disputa amistoso (onde: *.php):
+            -campo se divide em 5 partes 'p' (Gi, Di/Aj, Mi/Mj, Ai/Dj, Gj) e clube em 4 partes 'q' (G - goleiro, D - defesa, M - meio, A - ataque).
+            -a forca de um clube em cada 'q' sera a soma de seus jogadores ali.
+            -a bola estara em 'p'.
+            -a bola avancara para o proximo 'p' em direção ao ataque do clube que ganhar a posse da bola.
+            -a posse da bola sera determinada por aleatoriedade usando algoritmo de roleta com base na forca dos clube em 'p'.
+            -será gol:
+                -quando o ataque Ak ganhar a posse da bola e,
+                -usando o algoritmo de roleta com a forca do goleiro Gk e a media do ataque A, o ataque ganhar na roleta.
+                -e a bola retornara a ser disputada em Mi/Mj.
+            -o jogo terá 25 disputas de posse de bola.
+            -o clube vencedor ganha $10
+                -atualizar saldo no banco
+            -deve ser disparado assim q jogador aceitar convite para amistoso.
+            -retornar json com cada disputa de bola.
+        5.2 - Fazer front-end da disputa de amistoso (onde: *.html (colocar estilo) e *.js):
+                -mostrar a cada 0,5 segundos uma disputa de posse de bola retornada pelo back-end
+    6 - vender jogador (alterar id_clube no banco para NULL e atualizar saldo do clube) (admin_clube.js)
+    7 - migrar banco para postgress (alterar todo acesso ao banco para postgress seguindo padroes do heroku)
+    

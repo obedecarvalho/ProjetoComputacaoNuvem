@@ -5,22 +5,7 @@
 	<title>Início</title>
 	<meta charset="utf-8" />
     <script src="angular.min.js"></script>
-    <script>
-        var app = angular.module("comprar_jogador", []);
-        app.controller("comprar_jogador_controller", function($scope,$http){
-            $scope.jogadores = [];
-            $scope.listar_jogadores = function(){
-                url = "http:./jogadores_vender.php";
-                $http.get(url).then(function (response) {
-                    $scope.lista_jogadores = response.data.records;
-                });
-            }
-            $scope.comprar_jogador = function(jog){
-                alert(jog.nome_jogador);
-            }
-            $scope.listar_jogadores();
-        });     
-    </script>
+    <script src="comprar_jogador.js"></script>
 </head>
 
 <body>

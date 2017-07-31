@@ -12,7 +12,7 @@
 <body>
     <div ng-app="inicio_fastfoot" ng-controller="inicio_fastfoot_controller">
         <div id="login">
-            <span ng-if="m_login_valido">Login inválido<br></span>
+            <span ng-if="mostrar_login_invalido">Login inválido<br></span>
             Login:<input type="text" ng-model="login"> <br>
             Senha:<input type="password" ng-model="senha"> <br>
             <button ng-click="logar()">Logar</button> <br>

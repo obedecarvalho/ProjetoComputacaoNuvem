@@ -33,8 +33,9 @@ app.controller("admin_clube_ctrl", function($scope,$http){
         url = "http:./tatica.php";
         $http.get(url).then(function (response) {
             var resp = response.data.records;
+            var pos_tatica = parseInt(resp[0]['tatica']) - 1;
             if(resp != -1){
-                $scope.formacao_tatica = $scope.taticas[parseInt(resp[0]['tatica']) - 1];
+                $scope.formacao_tatica = $scope.taticas[pos_tatica];
             }
         });        
     }
@@ -94,6 +95,7 @@ app.controller("admin_clube_ctrl", function($scope,$http){
         });
     }                        
     
+    //execucao
     $scope.verificar_sessao();
     
 })
