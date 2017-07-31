@@ -7,10 +7,16 @@ Tarefas ainda faltam:
         cadastrar novo usuario no banco e gerar seus jogadores (onde: *.php e index.js)
     3 - Comprar Jogador
         alterar id_clube do jogador no banco, alterar saldo clube no banco (onde: *.php e comprar_jogador.js)
-    4 - Escalar time
-        permitir jogador alterar tatica, selecionar jogadores de acordo com a tatica e salvar a tatica escolhida em ?? (onde: *.php e admin_clube.js)
-    5 - disputar amistoso (clube i x clube j):
+    4 - Escalar time (onde: *.php e admin_clube.js)
+        -permitir jogador alterar tatica, selecionar jogadores de acordo com a tatica
+        -salvar a tatica escolhida no banco
+            -enviar(atraves de admin.js para o *.php) json com 'escalado' de todos os jogadores e atualizar no banco
+    5 - permitir usuario marcar amistoso: (onde: *.html, *.php, *.js)
+        -listar nomes clubes para usuário fazer amistoso
+        -inserir cada novo amistoso marcado no banco de dados com estado 'nao realizado'
+    6 - disputar amistoso (clube i x clube j):
         5.1 - Fazer back-end da disputa amistoso (onde: *.php):
+            -clubes devem estar escalados
             -campo se divide em 5 partes 'p' (Gi, Di/Aj, Mi/Mj, Ai/Dj, Gj) e clube em 4 partes 'q' (G - goleiro, D - defesa, M - meio, A - ataque).
             -a forca de um clube em cada 'q' sera a soma de seus jogadores ali.
             -a bola estara em 'p'.
@@ -27,6 +33,6 @@ Tarefas ainda faltam:
             -retornar json com cada disputa de bola.
         5.2 - Fazer front-end da disputa de amistoso (onde: *.html (colocar estilo) e *.js):
                 -mostrar a cada 0,5 segundos uma disputa de posse de bola retornada pelo back-end
-    6 - vender jogador (alterar id_clube no banco para NULL e atualizar saldo do clube) (admin_clube.js)
-    7 - migrar banco para postgress (alterar todo acesso ao banco para postgress seguindo padroes do heroku)
+    7 - vender jogador (alterar id_clube no banco para NULL e atualizar saldo do clube) (admin_clube.js)
+    8 - migrar banco para postgress (alterar todo acesso ao banco para postgress seguindo padroes do heroku)
     

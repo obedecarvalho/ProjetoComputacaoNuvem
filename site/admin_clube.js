@@ -48,6 +48,12 @@ app.controller("admin_clube_ctrl", function($scope,$http){
         alert($scope.formacao_tatica);
     }
     
+    $scope.limpar_escalacao = function (){
+        for (i = 0; i < $scope.lista_jogadores.length; i++) {
+            $scope.lista_jogadores[i].escalado = 0;
+        }
+    }
+    
     $scope.rejeitar_amistoso = function(amistoso){
         var data = $.param({
             id_amistoso: amistoso.id_amistoso,
@@ -72,11 +78,15 @@ app.controller("admin_clube_ctrl", function($scope,$http){
     }
     
     $scope.vender_jogador = function(jog){
-        alert(jog['nome_jogador']);
+        alert(jog.nome_jogador);
     }
     
     $scope.escalar_jogador = function(jog){
-        alert(jog['nome_jogador']);
+        alert(jog.nome_jogador);
+    }
+    
+    $scope.descalar_jogador = function(jog){
+        jog.escalado = 0;
     }
     
     $scope.verificar_sessao = function (){

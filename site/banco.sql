@@ -26,6 +26,7 @@ CREATE TABLE jogador(
     nome_jogador varchar(64) NOT NULL,
     forca integer NOT NULL, # 1 a 10
     posicao integer NOT NULL, # 1 a 4 (G,D,M,A)
+    escalado integer NOT NULL, # 0 a 1(nao escalado ou escalado)
     PRIMARY KEY (id_jogador),
     FOREIGN KEY (id_clube) REFERENCES clube(id_clube)    
 );

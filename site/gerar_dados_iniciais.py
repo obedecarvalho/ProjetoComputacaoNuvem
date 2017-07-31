@@ -8,7 +8,7 @@ url = 'http://www.wjr.eti.br/nameGenerator/index.php?q=200&o=json'
 letra = list(string.ascii_lowercase)
 usr = 'INSERT INTO usr VALUES ({0}, "{1}", "{2}");'
 clube = 'INSERT INTO clube VALUES ({0}, {1}, "{2}", {3}, {4});'
-jogador = 'INSERT INTO jogador VALUES ({0}, {1}, "{2}", {3}, {4});'
+jogador = 'INSERT INTO jogador VALUES ({0}, {1}, "{2}", {3}, {4}, {5});'
 amistoso = 'INSERT INTO amistoso VALUES ({0}, {1}, {2},{3});'
 
 #page = requests.get(url)
@@ -28,9 +28,9 @@ for id_usr in range(2,12):
 for id_usr in range(2,12):
     for i in range(20):
         if i in [12, 16]:
-            saida.write(jogador.format(id_usr*20 + i, 'null', nomes[id_usr*20 +i - 40], random.randint(1,10), random.randint(2,4)) + '\n')
+            saida.write(jogador.format(id_usr*20 + i, 'null', nomes[id_usr*20 +i - 40], random.randint(1,10), random.randint(2,4), '0') + '\n')
         else:
-            saida.write(jogador.format(id_usr*20 + i, id_usr, nomes[id_usr*20 +i - 40], random.randint(1,10), i%4 + 1) + '\n')
+            saida.write(jogador.format(id_usr*20 + i, id_usr, nomes[id_usr*20 +i - 40], random.randint(1,10), i%4 + 1, '0') + '\n')
     for i in range(5):
         n1 = random.randint(2,11)
         while n1 == id_usr:
