@@ -27,7 +27,10 @@ for id_usr in range(2,12):
     saida.write(clube.format(id_usr, id_usr, nome_c, random.randint(5,10)*10, id_usr%5 + 1) + '\n')
 for id_usr in range(2,12):
     for i in range(20):
-        saida.write(jogador.format(id_usr*20 + i, id_usr, nomes[id_usr*20 +i - 40], random.randint(1,10), i%4 + 1) + '\n')
+        if i in [12, 16]:
+            saida.write(jogador.format(id_usr*20 + i, 'null', nomes[id_usr*20 +i - 40], random.randint(1,10), random.randint(2,4)) + '\n')
+        else:
+            saida.write(jogador.format(id_usr*20 + i, id_usr, nomes[id_usr*20 +i - 40], random.randint(1,10), i%4 + 1) + '\n')
     for i in range(5):
         n1 = random.randint(2,11)
         while n1 == id_usr:

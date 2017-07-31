@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Início</title>
+	<meta charset="utf-8" />
+    <script src="angular.min.js"></script>
+    <script>
+        var app = angular.module("comprar_jogador", []);
+        app.controller("comprar_jogador_controller", function($scope,$http){
+            $scope.jogadores = [];
+            $scope.listar_jogadores = function(){
+                url = "http:./jogadores_vender.php";
+                $http.get(url).then(function (response) {
+                    $scope.lista_jogadores = response.data.records;
+                });
+            }
+            $scope.comprar_jogador = function(jog){
+                alert(jog.nome_jogador);
+            }
+            $scope.listar_jogadores();
+        });     
+    </script>
+</head>
+
+<body>
+	<div ng-app="comprar_jogador" ng-controller="comprar_jogador_controller">
+        <div id="lista_jogadores">
+            <h3>Jogadores à Venda</h3><br>
+            <table>
+                <thead>
+                    <td>Nome</td>
+                    <td>Força</td>
+                    <td>Posição</td>
+                    <td>Valor</td>
+                    <td>Comprar</td>
+                </thead>
+                <tr ng-repeat="j in lista_jogadores | orderBy : 'posicao'">
+                    <td>{{ j.nome_jogador }}</td>
+                    <td>{{ j.forca }}</td>
+                    <td ng-if="j.posicao == 1">Goleiro</td>
+                    <td ng-if="j.posicao == 2">Defesa</td>
+                    <td ng-if="j.posicao == 3">Meio-Campo</td>
+                    <td ng-if="j.posicao == 4">Ataque</td>
+                    <td>$ {{ j.forca * 9}} </td>
+                    <td><input type="button" ng-click="comprar_jogador(j)" value="Comprar"></td>
+                </tr>
+            </table>
+            <br><a href="./admin_clube.html">Voltar</a>	
+        </div>
+    </div>	
+</body>
+
+</html>
