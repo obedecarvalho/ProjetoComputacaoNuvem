@@ -13,6 +13,7 @@ app.controller("inicio_fastfoot_controller", function($scope,$http){
         var url = "http:./login_valido.php";
         $http.post(url, data, config).then(function (response) {
             var resp = response.data.records;
+            console.log(resp);
             $scope.login_valido = resp[0]['login_valido'];
             if($scope.login_valido == 1){
                 window.location.href = "http:./admin_clube.html";
