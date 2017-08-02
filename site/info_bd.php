@@ -1,6 +1,6 @@
 <?php
     $host = "127.0.0.1";
-    $login = "";
-    $senha = "";
+    $login = "root";
+    $senha = "admin";
     $bd = "fastfoot";
 ?>
