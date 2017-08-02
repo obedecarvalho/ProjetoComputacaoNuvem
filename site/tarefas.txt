@@ -7,7 +7,7 @@ Tarefas ainda faltam:
         cadastrar novo usuario no banco e gerar seus jogadores (onde: *.php e index.js)
     3 - Comprar Jogador (Gabriel)
         alterar id_clube do jogador no banco, alterar saldo clube no banco (onde: *.php e comprar_jogador.js)
-    4 - Escalar time (onde: *.php e admin_clube.js) (obede)
+    4 - Escalar time (onde: *.php e admin_clube.js) (obede) (pronto)
         -permitir jogador alterar tatica, selecionar jogadores de acordo com a tatica
         -salvar a tatica escolhida no banco
             -enviar(atraves de admin.js para o *.php) json com 'escalado' de todos os jogadores e atualizar no banco

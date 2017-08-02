@@ -42,13 +42,11 @@
                     <td ng-if="j.posicao == 3">Meio-Campo</td>
                     <td ng-if="j.posicao == 4">Ataque</td>
                     <td ng-if="j.escalado == 0"><input type="button" ng-click="escalar_jogador(j)" value="Escalar"></td>
-                    <td ng-if="j.escalado == 1"><input type="button" ng-click="descalar_jogador(j)" value="Descalar"></td>
+                    <td ng-if="j.escalado == 1"><input type="button" ng-click="desescalar_jogador(j)" value="Desescalar"></td>
                     <td>$ {{ j.forca * 9}} </td>
                     <td><input type="button" ng-click="vender_jogador(j)" value="Vender"></td>
                 </tr>
             </table>
-            <input type="button" ng-click="limpar_escalacao()" value="Limpar Escalação">
-            <input type="button" ng-click="salvar_escalacao()" value="Salvar Escalação">            
             <br><a href="./comprar_jogador.html">Comprar Jogadores</a>	
         </div>
         
