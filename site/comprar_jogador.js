@@ -24,9 +24,20 @@ app.controller("comprar_jogador_controller", function($scope,$http){
         });
     }
     
-    $scope.comprar_jogador = function(jog){
+    $scope.comprar_jogador = function(jog,valor){
         console.log(jog);
-        console.log($_SESSION["id_clube"]);
+        url = "http:./comprar_jogador.php";
+        $http.get(url).then(function (response) {
+            var resp = response.data.records;
+            var valor = jog.forca * 9;
+            if(resp.patrimonio >= valor){
+                console.log('pode efetuar a compra');
+            }
+            else{
+                alert('Seu saldo é insufciciente');
+                console.log('não pode efetuar a compra');
+            }
+        });
     }
     
     
