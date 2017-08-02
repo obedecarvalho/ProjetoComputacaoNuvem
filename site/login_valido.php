@@ -6,7 +6,7 @@
     $outp = "";
     $out = 0;
     if ($res->num_rows == 1){
-        echo "logou";
+        //echo "logou";
         $out = 1;
         $id_usr_t = $res->fetch_assoc();
         session_start();

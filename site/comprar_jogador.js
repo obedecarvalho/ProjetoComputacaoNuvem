@@ -25,7 +25,8 @@ app.controller("comprar_jogador_controller", function($scope,$http){
     }
     
     $scope.comprar_jogador = function(jog){
-        alert(jog.nome_jogador);
+        console.log(jog);
+        console.log($_SESSION["id_clube"]);
     }
     
     
