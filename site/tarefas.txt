@@ -11,7 +11,7 @@ Tarefas ainda faltam:
         -permitir jogador alterar tatica, selecionar jogadores de acordo com a tatica
         -salvar a tatica escolhida no banco
             -enviar(atraves de admin.js para o *.php) json com 'escalado' de todos os jogadores e atualizar no banco
-    5 - permitir usuario marcar amistoso: (onde: *.html, *.php, *.js)
+    5 - permitir usuario marcar amistoso: (onde: *.html, *.php, *.js) (obede) (pronto)
         -listar nomes clubes para usuário fazer amistoso
         -inserir cada novo amistoso marcado no banco de dados com estado 'nao realizado'
     6 - disputar amistoso (clube i x clube j): (Gabriel)

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Adminstração do clube</title>
+	<meta charset="utf-8" />
+    <script src="angular.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="marcar_amistoso.js"></script>
+</head>
+
+<body>
+    <div ng-app="marcar_amistoso" ng-controller="marcar_amistoso_ctrl">
+        
+        <div id="clubes">
+            <h3>Clubes</h3><br>
+            <table>
+                <thead>
+                    <td>Nome</td>
+                    <td>Marcar</td>
+                </thead>
+                <tr ng-repeat="c in clubes | orderBy : 'nome_clube'">
+                    <td>{{ c.nome_clube }}</td>
+                    <td><input type="button" ng-click="marcar_amistoso(c)" value="Marcar"></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <br><a href="./admin_clube.html">Voltar</a>
+    <br><a href="./deslogar.php">Sair</a>
+</body>
+
+</html>
