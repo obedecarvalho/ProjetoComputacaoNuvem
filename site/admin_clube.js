@@ -103,7 +103,27 @@ app.controller("admin_clube_ctrl", function($scope,$http){
     }
     
     $scope.vender_jogador = function(jog){
-        alert(jog.id_jogador);
+        $scope._vender(jog);
+        //alert(jog.id_jogador);
+    }
+
+    $scope._vender = function (jog){
+        var data = {
+            id_jogador: jog.id_jogador,
+            valor: jog.forca * 9,
+        };
+        console.log(data);
+        var config = {
+            headers : {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        }
+        var url = "http:./vender_jogador.php";
+        $http.post(url, data, config).then(function (response) {
+            console.log("response",response);
+            window.location.reload();
+        });
+
     }
     
     $scope.escalar_jogador = function(jog){
