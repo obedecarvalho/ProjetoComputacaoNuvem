@@ -1,11 +1,9 @@
 heroku git:remote -a fastfoot
 git push heroku master
 
-
 "dbname=d91nlnphn6r8vv host=ec2-107-22-173-160.compute-1.amazonaws.com port=5432 user=dztrdyyjiskjaz password=eb4acea67715f142d90c544d580e096bc93c414f08125d8025adf236254fd84f sslmode=require"
 Connection URL:
    postgres://dztrdyyjiskjaz:eb4acea67715f142d90c544d580e096bc93c414f08125d8025adf236254fd84f@ec2-107-22-173-160.compute-1.amazonaws.com:5432/d91nlnphn6r8vv
 
-composer require csanquer/pdo-service-provider=~1.1dev
-
 psql -h ec2-107-22-173-160.compute-1.amazonaws.com -U dztrdyyjiskjaz
+heroku pg:psql
