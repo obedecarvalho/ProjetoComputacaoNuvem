@@ -5,7 +5,7 @@ Tarefas ainda faltam:
         -admin_clube.html
     2 - Cadastrar novo usuario
         cadastrar novo usuario no banco e gerar seus jogadores (onde: *.php e index.js)
-    3 - Comprar Jogador (Gabriel)
+    3 - Comprar Jogador (Gabriel) (pronto)
         alterar id_clube do jogador no banco, alterar saldo clube no banco (onde: *.php e comprar_jogador.js)
     4 - Escalar time (onde: *.php e admin_clube.js) (obede) (pronto)
         -permitir jogador alterar tatica, selecionar jogadores de acordo com a tatica
@@ -33,6 +33,6 @@ Tarefas ainda faltam:
             -retornar json com cada disputa de bola.
         5.2 - Fazer front-end da disputa de amistoso (onde: *.html (colocar estilo) e *.js):
                 -mostrar a cada 0,5 segundos uma disputa de posse de bola retornada pelo back-end
-    7 - vender jogador (alterar id_clube no banco para NULL e atualizar saldo do clube) (admin_clube.js) (Gabriel)
+    7 - vender jogador (alterar id_clube no banco para NULL e atualizar saldo do clube) (admin_clube.js) (Gabriel) (Pronto)
     8 - migrar banco para postgress (alterar todo acesso ao banco para postgress seguindo padroes do heroku) (obede)
     

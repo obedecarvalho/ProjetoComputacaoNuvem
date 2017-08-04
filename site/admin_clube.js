@@ -99,7 +99,26 @@ app.controller("admin_clube_ctrl", function($scope,$http){
     }
     
     $scope.disputar_amistoso = function(id_amistoso){
-        alert(id_amistoso);
+        //alert(id_amistoso);
+        $scope._disputar_amistoso(id_amistoso);
+    }
+
+    $scope._disputar_amistoso = function(id_amistoso){
+        //console.log(id_amistoso);
+        var data = {
+            id_amistoso: id_amistoso,
+        };
+        console.log(data);
+        var config = {
+            headers : {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        }
+        var url = "http:./partida.php";
+        $http.post(url, data, config).then(function (response) {
+            console.log("response",response);
+            //window.location.reload();
+        });
     }
     
     $scope.vender_jogador = function(jog){
