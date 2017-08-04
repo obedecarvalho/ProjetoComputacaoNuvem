@@ -29,14 +29,39 @@ app.controller("comprar_jogador_controller", function($scope,$http){
         url = "http:./comprar_jogador.php";
         $http.get(url).then(function (response) {
             var resp = response.data.records;
+            //console.log(response.data);
+            var patrimonio = resp[0].patrimonio;
+            
             var valor = jog.forca * 9;
-            if(resp.patrimonio >= valor){
+            if(patrimonio >= valor){
                 console.log('pode efetuar a compra');
+                $scope._comprar(resp[0].id_clube,jog.id_jogador,valor);
             }
             else{
                 alert('Seu saldo é insufciciente');
                 console.log('não pode efetuar a compra');
             }
+        });
+    }
+
+
+    $scope._comprar = function(id_clube,id_jogador,valor){
+        console.log(id_clube, id_jogador, valor);
+        var data = {
+            id_clube: id_clube,
+            id_jogador: id_jogador,
+            valor: valor,
+        };
+        console.log(data);
+        var config = {
+            headers : {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        }
+        var url = "http:./comprar.php";
+        $http.post(url, data, config).then(function (response) {
+            console.log("response",response);
+            window.location.reload();
         });
     }
     
