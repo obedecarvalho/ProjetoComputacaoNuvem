@@ -14,28 +14,27 @@ amistoso = 'INSERT INTO amistoso VALUES ({0}, {1}, {2},{3});'
 #page = requests.get(url)
 #nomes = json.loads(page.content.decode())
 
-with open('nomes.json') as f:
+with open('nomes_novos.json') as f:
     nomes = json.load(f)
 
-saida = open('inserir_mysql.sql','w')
-saida.write('USE fastfoot;\n')
-
-for id_usr in range(2,12):
+saida = open('inserir_postgres.sql','w')
+#saida.write('USE fastfoot;\n')
+tam = len(nomes)
+for id_usr in range(1,11):
     nome_u = letra[id_usr] * 3
-    nome_c = letra[len(letra) -1 - id_usr] * 3
-    saida.write(usr.format(id_usr, nome_u, nome_u) + '\n')
-    saida.write(clube.format(id_usr, id_usr, nome_c, random.randint(5,10)*10, id_usr%5 + 1) + '\n')
-for id_usr in range(2,12):
+    saida.write(usr.format('DEFAULT', nome_u, nome_u) + '\n')
+    saida.write(clube.format('DEFAULT', id_usr, nomes[tam-id_usr*20 - 40], 50, id_usr%5 + 1) + '\n')
+for id_usr in range(1,11):
     for i in range(20):
         if i in [12, 16]:
-            saida.write(jogador.format(id_usr*20 + i, 'null', nomes[id_usr*20 +i - 40], random.randint(1,10), random.randint(2,4), '0') + '\n')
+            saida.write(jogador.format('DEFAULT', 'null', nomes[id_usr*20 +i - 40], random.randint(3,8), random.randint(2,4), '0') + '\n')
         else:
-            saida.write(jogador.format(id_usr*20 + i, id_usr, nomes[id_usr*20 +i - 40], random.randint(1,10), i%4 + 1, '0') + '\n')
+            saida.write(jogador.format('DEFAULT', id_usr, nomes[id_usr*20 +i - 40], random.randint(1,9), i%4 + 1, '0') + '\n')
     for i in range(5):
-        n1 = random.randint(2,11)
+        n1 = random.randint(1,10)
         while n1 == id_usr:
             n1 = random.randint(2,11)
-        saida.write(amistoso.format('null',id_usr, n1, 1) + '\n')
+        saida.write(amistoso.format('DEFAULT',id_usr, n1, 1) + '\n')
 
 
 
