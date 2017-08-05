@@ -1,7 +1,6 @@
 var app = angular.module("inicio_fastfoot", []);
 app.controller("inicio_fastfoot_controller", function($scope,$http){
     $scope.logar = function(){
-        alert('Logar');
         var data = $.param({
             login: $scope.login,
             senha: $scope.senha,
@@ -17,19 +16,20 @@ app.controller("inicio_fastfoot_controller", function($scope,$http){
             //console.log(resp);
             $scope.login_valido = resp[0]['login_valido'];
             if($scope.login_valido == 1){
-                window.location.href = "http:./admin_clube.html";
+                alert('A');
+                window.location.href = "http://fastfoot.herokuapp.com/admin_clube.html";
             } else {
                 $scope.mostrar_login_invalido = 1;
             }
         }, function(response){alert('erro!')});
     }
     $scope.verificar_sessao = function (){
-        url = "http:./session.php";
+        url = "http://fastfoot.herokuapp.com/session.php";
         $http.get(url).then(function (response) {
             var resp = response.data.records;
             $scope.login_valido = resp[0]['logado'];
             if($scope.login_valido == 1){
-                window.location.href = "http:./admin_clube.html";
+                window.location.href = "http://fastfoot.herokuapp.com/admin_clube.html";
             }
         });
     } 
