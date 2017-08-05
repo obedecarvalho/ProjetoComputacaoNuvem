@@ -20,7 +20,7 @@ app.controller("inicio_fastfoot_controller", function($scope,$http){
             } else {
                 $scope.mostrar_login_invalido = 1;
             }
-        }});
+        });
     }
     $scope.verificar_sessao = function (){
         url = "https://fastfoot.herokuapp.com/session.php";
