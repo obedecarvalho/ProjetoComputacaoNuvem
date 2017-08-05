@@ -23,7 +23,7 @@ app.controller("inicio_fastfoot_controller", function($scope,$http){
         }, function(response){console.log(response.data)});
     }
     $scope.verificar_sessao = function (){
-        url = "http://fastfoot.herokuapp.com/session.php";
+        url = "https://fastfoot.herokuapp.com/session.php";
         $http.get(url).then(function (response) {
             var resp = response.data.records;
             $scope.login_valido = resp[0]['logado'];
