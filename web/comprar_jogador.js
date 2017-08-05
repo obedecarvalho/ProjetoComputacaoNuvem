@@ -17,9 +17,6 @@ app.controller("comprar_jogador_controller", function($scope,$http){
                 window.location.href = "https://fastfoot.herokuapp.com/index.html";
             } else {
                 $scope.listar_jogadores();
-                $scope.buscar_tatica();
-                $scope.listar_amistosos();
-                $scope.get_info_clube();
             }
         });
     }
@@ -68,5 +65,5 @@ app.controller("comprar_jogador_controller", function($scope,$http){
     
     //execucao
     $scope.verificar_sessao();
-    $scope.listar_jogadores();
+    
 });  
