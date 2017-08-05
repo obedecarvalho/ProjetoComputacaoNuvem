@@ -10,7 +10,7 @@ app.controller("inicio_fastfoot_controller", function($scope,$http){
             'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        var url = "http://fastfoot.herokuapp.com/login_valido.php";
+        var url = "https://fastfoot.herokuapp.com/login_valido.php";
         $http.post(url, data, config).then(function (response) {
             var resp = response.data.records;
             //console.log(resp);
