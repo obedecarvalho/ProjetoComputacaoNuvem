@@ -11,7 +11,6 @@ app.controller("marcar_amistoso_ctrl", function($scope,$http){
     }
     
     $scope.marcar_amistoso = function(clube){
-        alert(clube.id_clube);
         var data = $.param({
             id_clube: clube.id_clube
         });

@@ -101,7 +101,8 @@ app.controller("admin_clube_ctrl", function($scope,$http){
     
     $scope.disputar_amistoso = function(id_amistoso){ //analisar
         //alert(id_amistoso);
-        $scope._disputar_amistoso(id_amistoso);
+        //$scope._disputar_amistoso(id_amistoso);
+        window.location.href = "https://fastfoot.herokuapp.com/amistoso.php?id_amistoso=".id_amistoso;
     }
 
     $scope._disputar_amistoso = function(id_amistoso){
