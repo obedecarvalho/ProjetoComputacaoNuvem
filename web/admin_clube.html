@@ -7,22 +7,31 @@
     <script src="angular.min.js"></script>
     <script src="jquery.min.js"></script>
     <script src="admin_clube.js"></script>
+    <link rel="stylesheet" type="text/css" href="fastfoot.css">
 </head>
 
 <body>
-    <div ng-app="admin_clube" ng-controller="admin_clube_ctrl">
-        <div id="info_clube">
+    <center>
+    
+    <div class="principal" ng-app="admin_clube" ng-controller="admin_clube_ctrl">
+        <div class="secundaria">
+            <center>
+                <h1>FASTFOOT</h1>
+            </center>
+        </div>
+        <center>
+        <div class="secundaria" id="info_clube">
             <h2>Nome Clube: {{ nome_clube }}</h2>
             <h3>Patrimônio: ${{ patrimonio_clube }} </h3>
         </div>
         
-        <div id="tatica">
+        <div class="secundaria" id="tatica">
             <h3>Formação Tática</h3>
             <select ng-change="alterar_tatica()" ng-model="formacao_tatica">
                 <option ng-repeat="x in taticas">{{x}}</option>
             </select>
         </div>
-        <div id="lista_jogadores">
+        <div class="secundaria" id="lista_jogadores">
             <h3>Jogadores</h3><br>
             <table>
                 <thead>
@@ -51,7 +60,7 @@
         </div>
         
         
-        <div id="amistosos">
+        <div class="secundaria" id="amistosos">
             <h3>Amistosos</h3>
             <table>
                 <tr ng-repeat="a in amistosos">
@@ -62,9 +71,10 @@
             </table>
             <br><a href="./marcar_amistoso.html">Marcar amistoso</a>	
         </div>
-
+        <br><a href="./deslogar.php">Sair</a>
+        </center>
     </div>
-    <br><a href="./deslogar.php">Sair</a>
+    </center>
 </body>
 
 </html>

@@ -7,18 +7,26 @@
     <script src="./angular.min.js"></script>
     <script src="./jquery.min.js"></script>
     <script src="./index.js"></script>
+    <link rel="stylesheet" type="text/css" href="fastfoot.css">
 </head>
 
 <body>
-    <div ng-app="inicio_fastfoot" ng-controller="inicio_fastfoot_controller">
-        <div id="login">
+    <center>
+    <div class="principal" ng-app="inicio_fastfoot" ng-controller="inicio_fastfoot_controller">
+        <div class="secundaria">
+            <center>
+                <h1>FASTFOOT</h1>
+            </center>
+        </div>
+        <center>
+        <div class="secundaria" id="login">
             <span ng-if="mostrar_login_invalido">Login inválido<br></span>
             Login:<input type="text" ng-model="login"> <br>
             Senha:<input type="password" ng-model="senha"> <br>
             <button ng-click="logar()">Logar</button> <br>
         </div>
         
-        <div id="cadastrar">
+        <div id="cadastrar" class="secundaria">
             Insira o Login:<input type="text" ng-model="novo_login"> <br>
             Insira a Senha:<input type="password" ng-model="novo_senha"><br>
             Reinsira a Senha:<input type="password" ng-model="novo_senha2"><br>
@@ -26,7 +34,9 @@
             Insira nome do seu time:<input type="text" ng-model="novo_nome_time"> <br>
             <button ng-click="cadastrar()">Cadastrar</button><br>
         </div>
+        </center>
     </div>	
+    </center>
 </body>
 
 </html>

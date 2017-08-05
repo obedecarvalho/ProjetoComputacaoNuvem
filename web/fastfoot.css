@@ -1,0 +1,14 @@
+.principal {
+    border-radius: 10px;
+	background-color: #ccccdf;
+    padding: 10px;
+    margin: 10px;
+    width: 70%;
+}
+
+.secundaria {
+    border-radius: 10px;
+	background-color: #ddddf0;
+    padding: 10px;
+    margin: 10px;
+}

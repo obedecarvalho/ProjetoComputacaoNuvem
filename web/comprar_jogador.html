@@ -2,15 +2,23 @@
 <html>
 
 <head>
-	<title>Início</title>
+	<title>Comprar Jogador</title>
 	<meta charset="utf-8" />
     <script src="angular.min.js"></script>
     <script src="comprar_jogador.js"></script>
+    <link rel="stylesheet" type="text/css" href="fastfoot.css">
 </head>
 
 <body>
-	<div ng-app="comprar_jogador" ng-controller="comprar_jogador_controller">
-        <div id="lista_jogadores">
+    <center>
+	<div class="principal" ng-app="comprar_jogador" ng-controller="comprar_jogador_controller">
+        <div class="secundaria">
+            <center>
+                <h1>FASTFOOT</h1>
+            </center>
+        </div>
+        <center>
+        <div  class="secundaria" id="lista_jogadores">
             <h3>Jogadores à Venda</h3><br>
             <table>
                 <thead>
@@ -34,7 +42,9 @@
             <br><a href="./admin_clube.html">Voltar</a>	
             <br><a href="./deslogar.php">Sair</a>
         </div>
+        </center>
     </div>	
+    </center>
 </body>
 
 </html>

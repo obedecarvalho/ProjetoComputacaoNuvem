@@ -2,17 +2,24 @@
 <html>
 
 <head>
-	<title>Adminstração do clube</title>
+	<title>Marcar amistoso</title>
 	<meta charset="utf-8" />
     <script src="angular.min.js"></script>
     <script src="jquery.min.js"></script>
     <script src="marcar_amistoso.js"></script>
+    <link rel="stylesheet" type="text/css" href="fastfoot.css">
 </head>
 
 <body>
-    <div ng-app="marcar_amistoso" ng-controller="marcar_amistoso_ctrl">
-        
-        <div id="clubes">
+    <center>
+    <div class="principal" ng-app="marcar_amistoso" ng-controller="marcar_amistoso_ctrl">
+        <div class="secundaria">
+            <center>
+                <h1>FASTFOOT</h1>
+            </center>
+        </div>
+        <center>
+        <div class="secundaria" id="clubes">
             <h3>Clubes</h3><br>
             <table>
                 <thead>
@@ -25,10 +32,11 @@
                 </tr>
             </table>
         </div>
-
+        <br><a href="./admin_clube.html">Voltar</a>
+        <br><a href="./deslogar.php">Sair</a>
+        </center>
     </div>
-    <br><a href="./admin_clube.html">Voltar</a>
-    <br><a href="./deslogar.php">Sair</a>
+    </center>
 </body>
 
 </html>
