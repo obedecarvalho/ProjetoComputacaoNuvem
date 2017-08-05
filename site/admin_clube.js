@@ -98,7 +98,7 @@ app.controller("admin_clube_ctrl", function($scope,$http){
         });
     }
     
-    $scope.disputar_amistoso = function(id_amistoso){
+    $scope.disputar_amistoso = function(id_amistoso){ //analisar
         //alert(id_amistoso);
         $scope._disputar_amistoso(id_amistoso);
     }
@@ -131,7 +131,7 @@ app.controller("admin_clube_ctrl", function($scope,$http){
             id_jogador: jog.id_jogador,
             valor: jog.forca * 9,
         };
-        console.log(data);
+        //~ console.log(data);
         var config = {
             headers : {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
@@ -139,8 +139,9 @@ app.controller("admin_clube_ctrl", function($scope,$http){
         }
         var url = "http:./vender_jogador.php";
         $http.post(url, data, config).then(function (response) {
-            console.log("response",response);
-            window.location.reload();
+            //~ console.log("response",response);
+            var index = $scope.lista_jogadores.indexOf(jog);//window.location.reload();
+            $scope.lista_jogadores.splice(index,1);
         });
 
     }

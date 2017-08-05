@@ -22,7 +22,6 @@ app.controller("marcar_amistoso_ctrl", function($scope,$http){
         }
         var url = "http:./marcar_amistoso.php";
         $http.post(url, data, config).then(function (response) {
-            alert(response.data);
             //~ var resp = response.data.records;
             //~ var m = resp[0]['marcado'];
             //~ if(m == 1){

@@ -21,8 +21,7 @@ app.controller("inicio_fastfoot_controller", function($scope,$http){
                 $scope.mostrar_login_invalido = 1;
             }
         });
-        
-    }   
+    }
     $scope.verificar_sessao = function (){
         url = "http:./session.php";
         $http.get(url).then(function (response) {
@@ -35,15 +34,11 @@ app.controller("inicio_fastfoot_controller", function($scope,$http){
     } 
     
     $scope.cadastrar = function(){
-        alert("cad");
+        alert("cad"); //fazer
     }
 
     $scope.mostrar_login_invalido = 0;
     
     //execucao
-    $scope.login = "ccc"; //remover
-    $scope.senha = "ccc"; //remover
     $scope.verificar_sessao();
-     
-    
 })
