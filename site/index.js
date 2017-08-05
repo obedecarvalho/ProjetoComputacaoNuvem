@@ -1,6 +1,7 @@
 var app = angular.module("inicio_fastfoot", []);
 app.controller("inicio_fastfoot_controller", function($scope,$http){
     $scope.logar = function(){
+        alert('Logar');
         var data = $.param({
             login: $scope.login,
             senha: $scope.senha,
