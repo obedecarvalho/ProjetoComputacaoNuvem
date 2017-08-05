@@ -18,8 +18,8 @@
         </div>
         <center>
         <div id="lances">
-            <h3>Lances do Jogo</h3><br>
             <div class="secundaria">
+                <h3>Lances do Jogo</h3><br>
                 <?php
                     include("./info_bd.php");
 
@@ -160,14 +160,15 @@
                     if ($gol1 > $gol2){
                         $sql = "UPDATE clube SET patrimonio = patrimonio+10 WHERE id_clube=".$id_clubes["id_clube_convite"].";";
                         $res = pg_query($con,$sql);
-                    }else if ($gol1 > $gol2){
+                    }else if ($gol1 < $gol2){
                         $sql = "UPDATE clube SET patrimonio = patrimonio+10 WHERE id_clube=".$id_clubes["id_clube_convidado"].";";
                         $res = pg_query($con,$sql);
                     } else {
                         $sql = "UPDATE clube SET patrimonio = patrimonio+3 WHERE id_clube=".$id_clubes["id_clube_convite"].";"."UPDATE clube SET patrimonio = patrimonio+3 WHERE id_clube=".$id_clubes["id_clube_convidado"].";";
                         $res = pg_query($con,$sql);
                     }
-                    
+                    $sql = "UPDATE amistoso SET estado=3 WHERE id_amistoso=".$id_amistoso.";";
+                    $res = pg_query($con,$sql);
                 ?>
             </div>
             <br><a href="./admin_clube.html">Voltar</a>	
