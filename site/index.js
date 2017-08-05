@@ -16,11 +16,11 @@ app.controller("inicio_fastfoot_controller", function($scope,$http){
             //console.log(resp);
             $scope.login_valido = resp[0]['login_valido'];
             if($scope.login_valido == 1){
-                window.location.href = "http://fastfoot.herokuapp.com/admin_clube.html";
+                window.location.href = "https://fastfoot.herokuapp.com/admin_clube.html";
             } else {
                 $scope.mostrar_login_invalido = 1;
             }
-        }, function(response){console.log(response.data)});
+        }});
     }
     $scope.verificar_sessao = function (){
         url = "https://fastfoot.herokuapp.com/session.php";
@@ -28,7 +28,7 @@ app.controller("inicio_fastfoot_controller", function($scope,$http){
             var resp = response.data.records;
             $scope.login_valido = resp[0]['logado'];
             if($scope.login_valido == 1){
-                window.location.href = "http://fastfoot.herokuapp.com/admin_clube.html";
+                window.location.href = "https://fastfoot.herokuapp.com/admin_clube.html";
             }
         });
     } 
