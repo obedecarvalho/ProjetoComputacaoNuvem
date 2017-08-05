@@ -10,7 +10,7 @@ app.controller("inicio_fastfoot_controller", function($scope,$http){
             'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        var url = "https://fastfoot.herokuapp.com/login_valido.php";
+        var url = "http://fastfoot.herokuapp.com/login_valido.php";
         $http.post(url, data, config).then(function (response) {
             var resp = response.data.records;
             //console.log(resp);
@@ -20,7 +20,7 @@ app.controller("inicio_fastfoot_controller", function($scope,$http){
             } else {
                 $scope.mostrar_login_invalido = 1;
             }
-        }, function(response){alert(response.data)});
+        }, function(response){console.log(response.data)});
     }
     $scope.verificar_sessao = function (){
         url = "http://fastfoot.herokuapp.com/session.php";
