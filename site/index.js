@@ -23,7 +23,7 @@ app.controller("inicio_fastfoot_controller", function($scope,$http){
             } else {
                 $scope.mostrar_login_invalido = 1;
             }
-        });
+        }, function(response){alert('erro!')});
     }
     $scope.verificar_sessao = function (){
         url = "http:./session.php";
