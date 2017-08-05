@@ -5,21 +5,21 @@ app.controller("admin_clube_ctrl", function($scope,$http){
     $scope.amistosos = [];
     
     $scope.listar_jogadores = function (){
-        url = "http:./listar_jogadores.php";
+        url = "http://fastfoot.herokuapp.com/listar_jogadores.php";
         $http.get(url).then(function (response) {
             $scope.lista_jogadores = response.data.records;
         });
     }
     
     $scope.listar_amistosos = function (){
-        url = "http:./listar_amistosos.php";
+        url = "http://fastfoot.herokuapp.com/listar_amistosos.php";
         $http.get(url).then(function (response) {
             $scope.amistosos = response.data.records;
         });
     }
     
     $scope.get_info_clube = function(){
-        url = "http:./info_clube.php";
+        url = "http://fastfoot.herokuapp.com/info_clube.php";
         $http.get(url).then(function (response) {
             var resp = response.data.records;
             $scope.nome_clube = resp[0]["nome_clube"];
@@ -30,7 +30,7 @@ app.controller("admin_clube_ctrl", function($scope,$http){
     
     $scope.taticas = ['3-4-3','3-5-2','4-4-2','4-3-3','5-4-1'];
     $scope.buscar_tatica = function(){
-        url = "http:./tatica.php";
+        url = "http://fastfoot.herokuapp.com/tatica.php";
         $http.get(url).then(function (response) {
             var resp = response.data.records;
             var pos_tatica = parseInt(resp[0]['tatica']) - 1;
@@ -65,7 +65,7 @@ app.controller("admin_clube_ctrl", function($scope,$http){
                     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
                 }
             }
-            var url = "http:./alterar_tatica.php";
+            var url = "http://fastfoot.herokuapp.com/alterar_tatica.php";
             $http.post(url, data, config).then(function (response) {
                 var resp = response.data.records;
                 var alt = resp[0]['alterado'];
@@ -88,7 +88,7 @@ app.controller("admin_clube_ctrl", function($scope,$http){
             'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        var url = "http:./rejeitar_amistoso.php";
+        var url = "http://fastfoot.herokuapp.com/rejeitar_amistoso.php";
         $http.post(url, data, config).then(function (response) {
             var resp = response.data.records;
             var rej = resp[0]['rejeitado'];
@@ -114,7 +114,7 @@ app.controller("admin_clube_ctrl", function($scope,$http){
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        var url = "http:./partida.php";
+        var url = "http://fastfoot.herokuapp.com/partida.php";
         $http.post(url, data, config).then(function (response) {
             console.log("response",response);
             //window.location.reload();
@@ -137,7 +137,7 @@ app.controller("admin_clube_ctrl", function($scope,$http){
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        var url = "http:./vender_jogador.php";
+        var url = "http://fastfoot.herokuapp.com/vender_jogador.php";
         $http.post(url, data, config).then(function (response) {
             //~ console.log("response",response);
             var index = $scope.lista_jogadores.indexOf(jog);//window.location.reload();
@@ -168,7 +168,7 @@ app.controller("admin_clube_ctrl", function($scope,$http){
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
                 }
             }
-            var url = "http:./escalar_jogador.php";
+            var url = "http://fastfoot.herokuapp.com/escalar_jogador.php";
             $http.post(url, data, config).then(function (response) {
                 var resp = response.data.records;
                 var esc = resp[0]['escalado'];
@@ -189,7 +189,7 @@ app.controller("admin_clube_ctrl", function($scope,$http){
             'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        var url = "http:./escalar_jogador.php";
+        var url = "http://fastfoot.herokuapp.com/escalar_jogador.php";
         $http.post(url, data, config).then(function (response) {
             var resp = response.data.records;
             var esc = resp[0]['escalado'];
@@ -200,7 +200,7 @@ app.controller("admin_clube_ctrl", function($scope,$http){
     }
     
     $scope.verificar_sessao = function (){
-        url = "http:./session.php";
+        url = "http://fastfoot.herokuapp.com/session.php";
         $http.get(url).then(function (response) {
             var resp = response.data.records;
             $scope.login_valido = resp[0]['logado'];

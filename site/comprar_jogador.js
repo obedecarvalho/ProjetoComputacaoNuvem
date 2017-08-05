@@ -2,19 +2,19 @@ var app = angular.module("comprar_jogador", []);
 app.controller("comprar_jogador_controller", function($scope,$http){
     $scope.jogadores = [];
     $scope.listar_jogadores = function(){
-        url = "http:./jogadores_vender.php";
+        url = "http://fastfoot.herokuapp.com/jogadores_vender.php";
         $http.get(url).then(function (response) {
             $scope.lista_jogadores = response.data.records;
         });
     }
     
     $scope.verificar_sessao = function (){
-        url = "http:./session.php";
+        url = "http://fastfoot.herokuapp.com/session.php";
         $http.get(url).then(function (response) {
             var resp = response.data.records;
             $scope.login_valido = resp[0]['logado'];
             if($scope.login_valido == 0){
-                window.location.href = "http:./index.html";
+                window.location.href = "http://fastfoot.herokuapp.com/index.html";
             } else {
                 $scope.listar_jogadores();
                 $scope.buscar_tatica();
@@ -26,7 +26,7 @@ app.controller("comprar_jogador_controller", function($scope,$http){
     
     $scope.comprar_jogador = function(jog){
         //~ console.log(jog);
-        url = "http:./comprar_jogador.php";
+        url = "http://fastfoot.herokuapp.com/comprar_jogador.php";
         $http.get(url).then(function (response) {
             var resp = response.data.records;
             //console.log(response.data);
@@ -58,7 +58,7 @@ app.controller("comprar_jogador_controller", function($scope,$http){
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        var url = "http:./comprar.php";
+        var url = "http://fastfoot.herokuapp.com/comprar.php";
         $http.post(url, data, config).then(function (response) {
             //~ console.log("response",response);
             $scope.listar_jogadores();//window.location.reload();

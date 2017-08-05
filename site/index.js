@@ -16,7 +16,6 @@ app.controller("inicio_fastfoot_controller", function($scope,$http){
             //console.log(resp);
             $scope.login_valido = resp[0]['login_valido'];
             if($scope.login_valido == 1){
-                alert('A');
                 window.location.href = "http://fastfoot.herokuapp.com/admin_clube.html";
             } else {
                 $scope.mostrar_login_invalido = 1;

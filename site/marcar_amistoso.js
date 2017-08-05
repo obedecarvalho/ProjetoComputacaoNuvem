@@ -4,7 +4,7 @@ app.controller("marcar_amistoso_ctrl", function($scope,$http){
     $scope.clubes = [];
     
     $scope.listar_clubes = function(){
-        url = "http:./listar_clubes.php";
+        url = "http://fastfoot.herokuapp.com/listar_clubes.php";
         $http.get(url).then(function (response) {
             $scope.clubes = response.data.records;
         });
@@ -20,7 +20,7 @@ app.controller("marcar_amistoso_ctrl", function($scope,$http){
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        var url = "http:./marcar_amistoso.php";
+        var url = "http://fastfoot.herokuapp.com/marcar_amistoso.php";
         $http.post(url, data, config).then(function (response) {
             //~ var resp = response.data.records;
             //~ var m = resp[0]['marcado'];
@@ -31,12 +31,12 @@ app.controller("marcar_amistoso_ctrl", function($scope,$http){
     }
     
     $scope.verificar_sessao = function (){
-        url = "http:./session.php";
+        url = "http://fastfoot.herokuapp.com/session.php";
         $http.get(url).then(function (response) {
             var resp = response.data.records;
             $scope.login_valido = resp[0]['logado'];
             if($scope.login_valido == 0){
-                window.location.href = "http:./index.html";
+                window.location.href = "http://fastfoot.herokuapp.com/index.html";
             } else {
                 $scope.listar_clubes();
             }
